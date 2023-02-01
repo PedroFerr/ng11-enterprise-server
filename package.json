@@ -1,6 +1,7 @@
 {
   "name": "server-jwt",
   "version": "1.0.0",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -18,15 +19,5 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.9"
-  },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@gitlab.com/PedroFerr/ng11-enterprise-server.git"
-  },
-  "bugs": {
-    "url": "https://gitlab.com/PedroFerr/ng11-enterprise-server/issues"
-  },
-  "homepage": "https://gitlab.com/PedroFerr/ng11-enterprise-server#readme",
-  "description": ""
+  }
 }
