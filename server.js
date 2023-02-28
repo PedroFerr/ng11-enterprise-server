@@ -9,6 +9,13 @@ const express = require('express');
 //CREATE EXPRESS APP
 const app = express();
 app.use(cors({ origin: '*' }));
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
 app.use(bodyParser.json());
 
 // DECLARE JWT-secret SENSITIVE:
@@ -18,7 +25,7 @@ const testUser = { email: process.env.USERemail, password: process.env.USERpassw
 app.post('/api/authenticate', (req, res) => {
 
     if (req.body) {
-        var user = req.body;
+        const user = req.body;
         console.log(user)
 
         bcrypt.hash(req.body.password, 10, function(err, hash) {
@@ -30,7 +37,7 @@ app.post('/api/authenticate', (req, res) => {
 
                 if (result && testUser.email === req.body.email && testUser.password === req.body.password) {
 
-                    var token = jwt.sign(user, JWT_Secret, { expiresIn: 120 });
+                    const token = jwt.sign(user, JWT_Secret, { expiresIn: 120 });
                     
                     console.log('DEPOIS: ', req.body.email, req.body.password, token);
 
