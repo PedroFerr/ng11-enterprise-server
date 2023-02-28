@@ -18,6 +18,12 @@ app.use(function(req, res, next) {
 });
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+    res.send(
+        "<h1 style='text-align: center'>Wellcome to Miles-NET enterprise SERVER<br><br>📍📍👀📍📍👀📍📍👀📍📍</h1>"
+    );
+});
+
 // DECLARE JWT-secret SENSITIVE:
 const JWT_Secret = process.env.JWT_Secret;
 const testUser = { email: process.env.USERemail, password: process.env.USERpassword };
